@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import DefaultPicture from '../../assets/defaultPicture.jpg'
+import colors from '../../utils/styles/colors'
+
 
 const CardLabel = styled.span`
     color: #5843e4;
@@ -16,15 +18,28 @@ const CardImage = styled.img`
     box-shadow: 5px 5px 10px;
     margin-bottom: 20px;
 `
+const CardWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: ${colors.backgroundLight};
+    border-radius: 30px;
+    width: 250px;
+    transition: 200ms;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 2px 2px 10px #e2e3e9;
+    }
+`
 
 function Card({ label, title, picture }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', padding: 15 }}>
-      <CardLabel>{label}</CardLabel>
-      <CardImage src={picture} alt="freelance" />
-      <span>{title}</span>
-    </div>
-  )
+    <CardWrapper>
+        <CardLabel>{label}</CardLabel>
+        <CardImage src={picture} alt="freelance" />
+        <span>{title}</span>
+    </CardWrapper>
+)
 }
 
 Card.propTypes = {

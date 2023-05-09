@@ -5,10 +5,9 @@ import styled from 'styled-components'
 const CardsContainer = styled.div`
     display: grid;
     gap: 24px;
-    grid-template-rows: 350px 350px;
+    grid-template-rows: 250px 250px;
     grid-template-columns: repeat(2, 1fr);
 `
-
 
 function Freelances() {
   const freelanceProfiles = [
@@ -27,18 +26,19 @@ function Freelances() {
   ]
 
   return (
-    
-      <div>
-          <h1>Freelances 👩‍💻👨‍💻👩‍💻</h1>
-          {freelanceProfiles.map((profile, index) => (
-              <Card
-                  key={`${profile.name}-${index}`}
-                  label={profile.jobTitle}
-                  title={profile.name}
-              />
-          ))}
-      </div>
-  )
+    <div>
+        <h1>Freelances 👩‍💻👨‍💻👩‍💻</h1>
+        <CardsContainer>
+            {freelanceProfiles.map((profile, index) => (
+                <Card
+                    key={`${profile.name}-${index}`}
+                    label={profile.jobTitle}
+                    title={profile.name}
+                />
+            ))}
+        </CardsContainer>
+    </div>
+)
 
 }
 
